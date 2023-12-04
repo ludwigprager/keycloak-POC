@@ -34,20 +34,36 @@ spec:
 #       - name: KC_HTTP_RELATIVE_PATH
 #         value: "/keycloak"
 
+
         - name: KEYCLOAK_ADMIN
           value: "admin"
         - name: KEYCLOAK_ADMIN_PASSWORD 
           value: "admin"
-#       - name: KC_DB_HOSTNAME
-#         value: "acid-minimal-cluster"
-#       - name: KC_DB_USERNAME
-#         value: "backend"
-#       - name: KC_DB_PASSWORD
-#         value: "geheim"
-#       - name: KC_DB
-#         value: "postgres"
-#       - name: KC_DB_URL
-#         value: "jdbc:postgresql://acid-minimal-cluster:5432/keycloakdb"
+
+#       - name: KC_PROXY
+#         value: "edge"
+#       - name: KC_HOSTNAME_STRICT
+#         value: "false"
+#       - name: KC_HOSTNAME_STRICT_HTTPS
+#         value: "false"
+#       - name: PROXY_ADDRESS_FORWARDING
+#         value: "true"
+
+#       - name : KC_HOSTNAME
+#         value : "192.168.2.180" #replace with ingress URL
+
+#       - name : KEYCLOAK_HOSTNAME
+#         value : "http://192.168.2.180/keycloak" #replace with ingress URL
+
+#       - name : KC_HOSTNAME_ADMIN_URL
+#         value : "http://192.168.2.180:8081/keycloak/" #replace with ingress URL
+
+#       - name: KEYCLOAK_ADMIN_URL
+#         value: "http://192.168.2.180:8081/keycloak/admin"
+
+        - name: KEYCLOAK_LOGLEVEL
+          value: "DEBUG"
+
 
         - name: KC_HEALTH_ENABLED
           value: "true"

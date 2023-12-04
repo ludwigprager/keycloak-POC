@@ -2,7 +2,7 @@
 
 ## Description
 
-This project is an keycloak playground to install, configure and run in a kubernetes cluster 
+This project is a keycloak playground to install, configure and run in a kubernetes cluster 
 in a matter of minutes without affecting running installations.  
 It is self-contained and has a small footprint. The [tear-down script](./90-teardown.sh) will
 remove most traces when applied after use.

@@ -16,7 +16,8 @@ function finish {
 trap finish INT TERM EXIT
 
 
-# apply the manifests in the following order
+#envsubst < > k3d-config/${CLUSTER}.yaml
+
 ./kubectl apply -f manifest/whoami.yaml
 ./kubectl apply -f manifest/keycloak.yaml
 ./kubectl apply -f manifest/ingress.yaml
