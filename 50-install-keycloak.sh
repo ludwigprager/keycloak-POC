@@ -19,6 +19,12 @@ trap finish INT TERM EXIT
 # apply the manifests in the following order
 ./kubectl apply -f manifest/keycloak.yaml
 
+#j./kubectl wait --for=condition=complete --timeout=30s podl
+
+echo "waiting for keycloak deployment to get ready"
+./kubectl rollout status deployment keycloak -n default --timeout=300s
+
+
 #echo http://$(get-primary-ip):8081/
 ##echo http://$(get-primary-ip):8081/postgres-operator-ui
 

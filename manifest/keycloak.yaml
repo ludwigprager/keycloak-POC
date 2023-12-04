@@ -49,8 +49,8 @@ spec:
 #       - name: KC_DB_URL
 #         value: "jdbc:postgresql://acid-minimal-cluster:5432/keycloakdb"
 
-#       - name: KC_HEALTH_ENABLED
-#         value: "true"
+        - name: KC_HEALTH_ENABLED
+          value: "true"
 #       - name: KC_METRICS_ENABLED
 #         value: "true"
 
@@ -67,6 +67,13 @@ spec:
 
 #     imagePullSecrets:
 #     - name: reg-secret-01
+
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 10
 
 ---
 apiVersion: v1

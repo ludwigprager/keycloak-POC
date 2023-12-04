@@ -50,7 +50,8 @@ fi
 #     --api-port 6550 -p "${INGRESS_PORT}:80@loadbalancer" \
 #     --agents 2
 
-    ./k3d cluster create --api-port 6550 -p "8081:80@loadbalancer" --agents 2 $CLUSTER
+#   ./k3d cluster create --api-port 6550 -p "8081:80@loadbalancer" --agents 2 $CLUSTER
+    ./k3d cluster create --api-port 6550 -p "8081:80@loadbalancer"            $CLUSTER
 
   fi
 
