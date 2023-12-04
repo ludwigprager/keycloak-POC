@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: keycloak
+  template:
+    metadata:
+      labels:
+        app: keycloak
+    spec:
+      containers:
+      - name: keycloak
+        image: quay.io/keycloak/keycloak:23.0.1
+
+        env:
+
+#       - name: KEYCLOAK_FRONTEND_URL
+#         value: "http://localhost:8131/auth"
+
+#       - name: KEYCLOAK_FRONTEND_URL
+#         value: "https://keycloak.neonds.de/keycloak"
+
+#       - name: KEYCLOAK_FRONTEND_URL
+#         value: "https://keycloak.neonds.de/auth"
+#       - name: KEYCLOAK_ADMIN_URL
+#         value: "https://keycloak.neonds.de/auth/realms/master/admin"
+
+#       - name: http-relative-path
+#         value: "/keycloak"
+#       - name: KC_HTTP_RELATIVE_PATH
+#         value: "/keycloak"
+
+        - name: KEYCLOAK_ADMIN
+          value: "admin"
+        - name: KEYCLOAK_ADMIN_PASSWORD 
+          value: "admin"
+#       - name: KC_DB_HOSTNAME
+#         value: "acid-minimal-cluster"
+#       - name: KC_DB_USERNAME
+#         value: "backend"
+#       - name: KC_DB_PASSWORD
+#         value: "geheim"
+#       - name: KC_DB
+#         value: "postgres"
+#       - name: KC_DB_URL
+#         value: "jdbc:postgresql://acid-minimal-cluster:5432/keycloakdb"
+
+#       - name: KC_HEALTH_ENABLED
+#         value: "true"
+#       - name: KC_METRICS_ENABLED
+#         value: "true"
+
+
+
+
+#       command: ["/opt/keycloak/bin/kc.sh"]
+#       command: ["/usr/bin/sleep", "infinity"]
+        args: ["start-dev"]
+
+#       command: ["bin/kc.sh", "start-dev"]
+#       command: ["sleep", "infinity"]
+#       imagePullPolicy: Always
+
+#     imagePullSecrets:
+#     - name: reg-secret-01
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: keycloak
+spec:
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8080
+  selector:
+    app: keycloak
+
