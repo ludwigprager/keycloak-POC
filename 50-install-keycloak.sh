@@ -38,7 +38,10 @@ wait-for-port-forward 8333
 #sensible-browser http://localhost:9898 &
 #sensible-browser http://$(get-primary-ip):8333 &
 #sensible-browser http://localhost:8333
-firefox http://localhost:8333
+#firefox http://localhost:8333
+
+
+sensible-browser http://localhost:8333 || echo "http://$(get-primary-ip):8333"
 
 sleep 5
 echo press "<enter>" to terminate port-forwarding
