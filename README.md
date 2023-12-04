@@ -1,8 +1,8 @@
-# postgres-operator-POC
+# keycloak-POC
 
 ## Description
 
-This project is an 'postgres operator' playground to install, configure and run postgres-operator
+This project is an keycloak playground to install, configure and run in a kubernetes cluster 
 in a matter of minutes without affecting running installations.  
 It is self-contained and has a small footprint. The [tear-down script](./90-teardown.sh) will
 remove most traces when applied after use.
@@ -11,14 +11,10 @@ remove most traces when applied after use.
 Clone this repo and run the start script:
 
 ```
-git clone --origin github https://github.com/ludwigprager/postgres-operator-POC.git
-./postgres-operator-POC/10-deploy.sh
+git clone --origin github https://github.com/ludwigprager/keycloak-POC.git
+./keycloak-POC/10-deploy.sh
 ```
 
-Display URL endpoints created by this poc:
-```
-./postgres-operator-POC/print-console-links.sh 
-```
 
 ## Prerequisites
 - a linux machine. Any distribution should work fine. Or macOS with Darwin.   
