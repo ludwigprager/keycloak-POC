@@ -17,7 +17,9 @@ trap finish INT TERM EXIT
 
 
 # apply the manifests in the following order
+./kubectl apply -f manifest/whoami.yaml
 ./kubectl apply -f manifest/keycloak.yaml
+./kubectl apply -f manifest/ingress.yaml
 
 #j./kubectl wait --for=condition=complete --timeout=30s podl
 
